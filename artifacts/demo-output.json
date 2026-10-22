@@ -1,0 +1,175 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "domain": "backend",
+        "rule_ids": [
+          "common",
+          "backend",
+          "security"
+        ],
+        "skill_ids": [
+          "request-validation",
+          "safe-config-change"
+        ]
+      },
+      "id": "explicit-domain-selection",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "domain": "mobile",
+        "outcome": "unsupported",
+        "rules": [],
+        "skills": []
+      },
+      "id": "unsupported-domain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "outcome": "refused"
+      },
+      "id": "missing-skill-reference",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "outcome": "refused"
+      },
+      "id": "stale-catalog",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "after_preview": {
+          "lumen-example.json": "8b20a07f59f02ffe3e66217c0fe51db2e83aac87cc9d9a2a9bb7aec75565d3d8",
+          "orbit-example.json": "aa9d28bf7bad1cb3b6aadf4dec59899e8412e5a548611180422f6d040d12a63a",
+          "unmanaged-note.txt": "b280151d146120b63c8419f7b3a727ce9e1f1133e0c7bde01da33f3b8eadf761"
+        },
+        "before": {
+          "lumen-example.json": "8b20a07f59f02ffe3e66217c0fe51db2e83aac87cc9d9a2a9bb7aec75565d3d8",
+          "orbit-example.json": "aa9d28bf7bad1cb3b6aadf4dec59899e8412e5a548611180422f6d040d12a63a",
+          "unmanaged-note.txt": "b280151d146120b63c8419f7b3a727ce9e1f1133e0c7bde01da33f3b8eadf761"
+        },
+        "planned_adapters": [
+          "lumen",
+          "orbit"
+        ]
+      },
+      "id": "preview-zero-mutations",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "after_apply": {
+          "lumen-example.json": "dd0f6b4fb86a6c57685b6b2049beb1406adb8a293a4684aec08449bc5a88dbf2",
+          "orbit-example.json": "033c90b2b470fc906ecaa3248cec87b2993ee37b59c8ebc0d39dd3f7b52e1f50",
+          "unmanaged-note.txt": "b280151d146120b63c8419f7b3a727ce9e1f1133e0c7bde01da33f3b8eadf761"
+        },
+        "before": {
+          "lumen-example.json": "8b20a07f59f02ffe3e66217c0fe51db2e83aac87cc9d9a2a9bb7aec75565d3d8",
+          "orbit-example.json": "aa9d28bf7bad1cb3b6aadf4dec59899e8412e5a548611180422f6d040d12a63a",
+          "unmanaged-note.txt": "b280151d146120b63c8419f7b3a727ce9e1f1133e0c7bde01da33f3b8eadf761"
+        }
+      },
+      "id": "apply-managed-only",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "planned_changes": 0,
+        "state_preserved": true
+      },
+      "id": "repeat-apply-no-op",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "expected": {
+          "lumen-example.json": "8b20a07f59f02ffe3e66217c0fe51db2e83aac87cc9d9a2a9bb7aec75565d3d8",
+          "orbit-example.json": "aa9d28bf7bad1cb3b6aadf4dec59899e8412e5a548611180422f6d040d12a63a",
+          "unmanaged-note.txt": "b280151d146120b63c8419f7b3a727ce9e1f1133e0c7bde01da33f3b8eadf761"
+        },
+        "restored": {
+          "lumen-example.json": "8b20a07f59f02ffe3e66217c0fe51db2e83aac87cc9d9a2a9bb7aec75565d3d8",
+          "orbit-example.json": "aa9d28bf7bad1cb3b6aadf4dec59899e8412e5a548611180422f6d040d12a63a",
+          "unmanaged-note.txt": "b280151d146120b63c8419f7b3a727ce9e1f1133e0c7bde01da33f3b8eadf761"
+        }
+      },
+      "id": "successful-rollback",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "after_rollback": {
+          "orbit-example.json": "aa9d28bf7bad1cb3b6aadf4dec59899e8412e5a548611180422f6d040d12a63a",
+          "unmanaged-note.txt": "b280151d146120b63c8419f7b3a727ce9e1f1133e0c7bde01da33f3b8eadf761"
+        },
+        "before": {
+          "orbit-example.json": "aa9d28bf7bad1cb3b6aadf4dec59899e8412e5a548611180422f6d040d12a63a",
+          "unmanaged-note.txt": "b280151d146120b63c8419f7b3a727ce9e1f1133e0c7bde01da33f3b8eadf761"
+        },
+        "failure_after_writes": 1,
+        "new_artifact_removed": true
+      },
+      "id": "injected-failure-rollback",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "after_rollback": {
+          "lumen-example.json": "8b20a07f59f02ffe3e66217c0fe51db2e83aac87cc9d9a2a9bb7aec75565d3d8",
+          "orbit-example.json": "aa9d28bf7bad1cb3b6aadf4dec59899e8412e5a548611180422f6d040d12a63a",
+          "unmanaged-note.txt": "b280151d146120b63c8419f7b3a727ce9e1f1133e0c7bde01da33f3b8eadf761"
+        },
+        "before": {
+          "lumen-example.json": "8b20a07f59f02ffe3e66217c0fe51db2e83aac87cc9d9a2a9bb7aec75565d3d8",
+          "orbit-example.json": "aa9d28bf7bad1cb3b6aadf4dec59899e8412e5a548611180422f6d040d12a63a",
+          "unmanaged-note.txt": "b280151d146120b63c8419f7b3a727ce9e1f1133e0c7bde01da33f3b8eadf761"
+        }
+      },
+      "id": "existing-file-failure-rollback",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "after_attempt": {
+          "lumen-example.json": "9cddd285a772fa3b94268c155d5959507793e6ece15910e537621a96399e6bda",
+          "orbit-example.json": "033c90b2b470fc906ecaa3248cec87b2993ee37b59c8ebc0d39dd3f7b52e1f50",
+          "unmanaged-note.txt": "b280151d146120b63c8419f7b3a727ce9e1f1133e0c7bde01da33f3b8eadf761"
+        },
+        "before_attempt": {
+          "lumen-example.json": "9cddd285a772fa3b94268c155d5959507793e6ece15910e537621a96399e6bda",
+          "orbit-example.json": "033c90b2b470fc906ecaa3248cec87b2993ee37b59c8ebc0d39dd3f7b52e1f50",
+          "unmanaged-note.txt": "b280151d146120b63c8419f7b3a727ce9e1f1133e0c7bde01da33f3b8eadf761"
+        },
+        "outcome": "refused"
+      },
+      "id": "drift-refuses-before-restore",
+      "passed": true
+    }
+  ],
+  "demo": "agent-engineering-toolkit",
+  "provider_calls": 0,
+  "scenarios": [
+    {
+      "events": [
+        "Caller supplies backend; deterministic example lookup loads three rules and two skills.",
+        "Unsupported mobile loads nothing; missing references and stale catalogs are refused."
+      ],
+      "id": "selection"
+    },
+    {
+      "events": [
+        "Fresh temporary examples: preview leaves all bytes unchanged.",
+        "Apply updates two managed examples and preserves the unmanaged note; repeat is a no-op.",
+        "Injected failures restore original bytes and remove a newly created managed example.",
+        "External managed-target edit makes rollback refuse before restoring any file.",
+        "All temporary example directories are cleaned on exit."
+      ],
+      "id": "configuration"
+    }
+  ],
+  "synthetic": true
+}
