@@ -1,18 +1,27 @@
 # Agent Engineering Toolkit
 
-Give an engineering agent the rules it needs for a task, and make configuration changes inspectable and recoverable.
+**Shared engineering rules and recoverable configuration for AI coding tools.**
 
-## The engineering project
+I built this toolkit to keep engineering rules, reusable skills, and configuration consistent across **Claude Code, Codex, OpenCode, and Antigravity**.
 
-The underlying toolkit brings shared engineering rules, reusable skills, and configuration management to **Claude Code, Codex, OpenCode, and Antigravity**. Common principles live in one place; each runtime has an adapter for its own configuration and lifecycle.
+The problem is practical: each tool has its own instruction format and configuration. Maintaining them separately can leave rules out of sync and make setup changes hard to trace or undo. The toolkit puts common rules in one place, gives each runtime an adapter, and separates configuration previews from application and recovery.
 
-Three design choices make the system interesting: a compact core with task-specific instruction loading, generated skill catalogs that catch missing or stale references, and a staged configuration workflow that separates preview, application, and recovery. Task classification remains instruction-guided; the catalog and migration checks are implemented in code.
+**Private implementation · Public architecture and runnable reference demo.**
 
-The full implementation and personal operating configuration remain private. This repository explains the architecture and exposes a small executable slice for inspection.
+## What I built
+
+- **A shared rule system:** a compact common core, with domain-specific guidance and selected skills loaded for the task. Task classification and selection are instruction-guided.
+- **Generated skill catalogs:** a generator validates skill references and provides a check for stale generated content.
+- **Runtime-specific adapters:** shared engineering principles map to each coding tool’s own configuration and lifecycle.
+- **A recoverable configuration workflow:** preview changes, apply them through a staged process, and validate targets before rollback so later edits are not silently overwritten.
+
+The full implementation and personal operating configuration remain private. The architecture documents explain these design choices; the example below lets you inspect selected behaviors without accessing that environment.
 
 ## Run the public reference demo
 
-This is a **newly authored public reference implementation with synthetic inputs**, inspired by a private agent-tooling project's architecture. It demonstrates a small, explicit workflow: select example rules and skills, preview two fictional adapter configurations, apply them, and recover from a deliberately injected failure. It is a runnable engineering sample, with no dependencies or provider access.
+The reference demo selects example rules and skills, previews two fictional adapter configurations, applies changes, and restores the original state after an injected failure. It also shows rollback refusing to overwrite a later edit.
+
+This is a separately authored example with **synthetic inputs**, not the private implementation or a real vendor installer. It runs in fresh temporary directories and needs no external dependencies or provider access.
 
 ```sh
 python3 demo.py
