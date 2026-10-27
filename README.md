@@ -1,10 +1,10 @@
 # Agent Harnesses
 
-**Shared engineering rules and recoverable configuration for AI coding tools.**
+**Shared rules, task-scoped skills, and recoverable setup for AI coding agents.**
 
-I built this toolkit to keep engineering rules, reusable skills, and configuration consistent across **Claude Code, Codex, OpenCode, and Antigravity**.
+I built Agent Harnesses to carry the same engineering rules and reusable skills across **Claude Code, Codex, OpenCode, and Antigravity**, with adapters for each tool’s configuration and lifecycle.
 
-The problem is practical: each tool has its own instruction format and configuration. Maintaining them separately can leave rules out of sync and make setup changes hard to trace or undo. The toolkit puts common rules in one place, gives each runtime an adapter, and separates configuration previews from application and recovery.
+Each coding tool has its own instruction format. Maintaining separate copies lets rules drift, loads irrelevant guidance, and makes configuration changes harder to trace or undo. My approach combines a compact shared core, task-specific guidance, generated skill catalogs, and a configuration workflow with preview and recovery.
 
 **Private implementation · Public architecture and runnable reference demo.**
 
@@ -15,11 +15,11 @@ The problem is practical: each tool has its own instruction format and configura
 - **Runtime-specific adapters:** shared engineering principles map to each coding tool’s own configuration and lifecycle.
 - **A recoverable configuration workflow:** preview changes, apply them through a staged process, and validate targets before rollback so later edits are not silently overwritten.
 
-The full implementation and personal operating configuration remain private. The architecture documents explain these design choices; the example below lets you inspect selected behaviors without accessing that environment.
+The full implementation and personal operating configuration remain private. This public showcase contains architecture documents and a separately authored reference demo. It demonstrates selected mechanics with synthetic inputs and fictional adapters.
 
 ## Run the public reference demo
 
-The reference demo selects example rules and skills, previews two fictional adapter configurations, applies changes, and restores the original state after an injected failure. It also shows rollback refusing to overwrite a later edit.
+**Try the failure path:** the demo applies example configuration, injects a failure, and restores the original state. A separate case makes rollback refuse to overwrite a later edit. You can also inspect selective rule loading, catalog validation, and a preview that writes nothing.
 
 This is a separately authored example with **synthetic inputs**, not the private implementation or a real vendor installer. It runs in fresh temporary directories and needs no external dependencies or provider access.
 
@@ -48,7 +48,11 @@ flowchart LR
     F --> H[Refuse on drift]
 ```
 
-The private project's task classification and selective loading are **instruction-guided**. This demo's domain lookup is deterministic; it does not classify natural-language tasks or run an LLM. Catalog generation, missing-reference checks, and staleness detection are code-enforced principles. No token savings or business outcomes were measured.
+## What the evidence supports
+
+The private project's task classification and selective loading are **instruction-guided**. This demo's domain lookup is deterministic; it does not classify natural-language tasks or run an LLM. The public code enforces catalog reference and staleness checks and the demonstrated configuration recovery rules.
+
+The demo reports **11 checks**, and its unit suite contains **13 tests**. These validate the public example’s behavior, not installation into real coding tools, private runtime parity, or production usage. No token savings or business outcomes were measured.
 
 For machine-readable evidence, run `python3 demo.py --json`. The committed [example output](artifacts/demo-output.json) comes from an actual local execution; all evidence is synthetic and uses logical filenames. Each run uses fresh temporary directories and cleans them on exit. No CLI option accepts a target directory.
 
