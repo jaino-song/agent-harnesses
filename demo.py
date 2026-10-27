@@ -307,7 +307,7 @@ def run_demo() -> dict:
             "External managed-target edit makes rollback refuse before restoring any file.",
             "All temporary example directories are cleaned on exit.",
         ]})
-    return {"demo": "agent-engineering-toolkit", "synthetic": True, "provider_calls": 0,
+    return {"demo": "agent-harnesses", "synthetic": True, "provider_calls": 0,
             "checks": checks, "scenarios": scenarios}
 
 
@@ -319,7 +319,7 @@ def main() -> int:
     if arguments.json:
         print(json.dumps(result, indent=2, sort_keys=True))
     else:
-        print("Agent Engineering Toolkit — synthetic reference walkthrough")
+        print("Agent Harnesses — synthetic reference walkthrough")
         print("No providers or vendor configuration are used.\n")
         for scenario in result["scenarios"]:
             for event in scenario["events"]:

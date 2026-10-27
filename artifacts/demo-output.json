@@ -150,7 +150,7 @@
       "passed": true
     }
   ],
-  "demo": "agent-engineering-toolkit",
+  "demo": "agent-harnesses",
   "provider_calls": 0,
   "scenarios": [
     {

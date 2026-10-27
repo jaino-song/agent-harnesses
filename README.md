@@ -1,4 +1,4 @@
-# Agent Engineering Toolkit
+# Agent Harnesses
 
 **Shared engineering rules and recoverable configuration for AI coding tools.**
 
